@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset = "utf-8"/>
+	<title>RemNote</title>
+	<style>
+		@import "css/reset.css";
+		@import "css/pomegranate.css";
+	</style>
+	<link rel = "stylesheet/less" type = "text/css" href = "./css/default.less"/>
+	<script src = "./js/less.min.js"></script>
+	<link rel="shortcut icon" href="./favicon.ico" />
+	<script src = "./js/jquery.min.js"></script>
+	<script src = "./js/plugins/elastic/jquery.elastic.js"></script>
+	<script src = "./js/plugins/heapbox/jquery.heapbox.min.js"></script>
+	<script src = "./js/utility.js"></script>
+	<script src = "./js/input.js"></script>
+	<script type = "text/x-mathjax-config">
+		MathJax.Hub.Config({
+			showMathMenu : false,
+			jsMath2jax: {
+				preview: "none"
+			},
+			"HTML-CSS": {
+			    preferredFont: "STIX",
+			    scale: 100
+			},
+			Tex : {
+				extensions: [ "mhchem.js" ]
+			}
+		});
+</script>
+	<script src = "http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+	<script>
+		$( function(){
+			$( ".note-date" ).html( "&mdash; " + getCurrDateString() );
+			noteInputer();
+		    $('.selectpicker').heapbox();
+		});
+	</script>
+</head>
+<body>
+	<div id = "main-header-wrapper">
+		<header class = "main">
+			<div class = "logo">
+				<img src = "./img/UiDesign/logo6.png"/>
+				<h1>Remnote</h1>
+			</div>
+			<nav class = "main">
+				<ul>
+					<li class = "notes-link">Notes</li>
+					<li class = "shorts-link">Shorts</li>
+					<li class = "reminders-link">Reminders</li>
+					<li class = "login-link">Login</li>
+				</ul>
+			</nav>
+		</header>
+	</div>
+	<div class = "main">
+		<div class = "note add-note">
+			<div class = "note-header">
+				<div class = "note-heading">
+					<input type = "text" class = "input-note-heading" id = "input-note-heading"/>
+					<textarea class = "input-note-short-descr" rows = "4">A short description of the note</textarea>
+					<div class = "note-date">&mdash; 19<sup>th</sup> October 2013, 18:42</div>
+				</div>
+				<div class = "note-group">
+					<img src = "./img/groups/algorithms.png"/>
+				</div>
+				<div class = "note-opt">
+					<a class = "add">Add</a>
+					<a class = "preview nomargin">Preview</a>
+					<a class = "attach nomargin">Attach a file</a>
+					<a class = "clear">Clear</a>
+				</div>
+				<div class = "note-info">
+					<div class = "note-category-name info-line">
+						<select class = "selectpicker">
+							<option value = "0">Digital logic</option>
+							<option value = "1">University</option>
+							<option value = "2">Mathematics</option>
+							<option value = "4">Physics</option>
+							<option value = "5">Reading</option>
+							<option value = "6">Programming</option>
+						</select>
+					</div>
+					<div class = "note-tags info-line">
+						<span class = "tag">Diode</span>
+						<span class = "tag">Active elements</span>
+						<span class = "tag">Electric circuits</span>
+						<span class = "tag">Boolean logic</span>
+					</div>
+					<div class = "note-attachments info-line">No attachments</div>
+				</div>
+			</div>
+			<div class = "note-content">
+				<textarea id = "input-note-content" class = "input-note-content">The content</textarea>
+			</div>
+			<div class = "note-footer">
+				Back to top
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+#A header of a test note
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tristique cursus consequat. In eu laoreet turpis, at laoreet augue. Integer iaculis libero vitae orci porta pharetra. Donec condimentum arcu sit amet arcu congue dictum. Cras consequat elit purus, feugiat suscipit velit pharetra pulvinar. Fusce in metus at nisi pretium varius a eget enim. Ut quis rhoncus sapien. Cras pulvinar justo risus, eget tincidunt magna malesuada in. Praesent iaculis elit sit amet sapien aliquam aliquam. Vivamus pharetra gravida nunc, sit amet suscipit purus molestie et. Mauris lacinia tincidunt augue, ut posuere lorem laoreet nec. Curabitur bibendum, elit ac vestibulum faucibus, dolor massa semper augue, in lacinia velit nulla ultrices turpis. Aliquam lectus diam, ornare quis ipsum sit amet, hendrerit bibendum risus. 
+#A list section
+  - Note item No1
+  - And a second item
+  - Buy milk
+#Yet another paragraph of text
+Ut id diam gravida, volutpat diam at, ullamcorper leo. Integer ac tellus laoreet, interdum dui a, mattis quam. Maecenas blandit commodo ipsum, quis laoreet odio mattis sit amet. Sed tincidunt tortor ac enim bibendum dapibus. Suspendisse malesuada venenatis sem facilisis consequat. Nullam non justo lacinia, sodales nibh sed, egestas lorem. Sed sollicitudin libero id massa iaculis, dictum imperdiet felis pellentesque. Suspendisse rhoncus fringilla odio, eget dictum arcu pharetra vulputate. In eget augue in risus scelerisque vulputate. In eleifend purus eget facilisis eleifend. *Quisque ut ligula ut dolor viverra volutpat.* Nullam sagittis mauris a elit pharetra condimentum. Sed interdum ac mauris eget venenatis. Pellentesque sed tortor nec felis dictum condimentum. Morbi tincidunt feugiat porttitor. Ut pellentesque sit amet ipsum sit amet tristique. 
+
+Oh yes, here is some code: `separated by backticks.` That's enough for today. But I almost forgot! Testing these strange little characters: <>&"' and so on should be done right now.
+
+And, btw., here comes *the one, the only, the BLOCK CODE ELEMENT...*
+#PRE element
+and some paragraph for fun
+   #include <awesome>
+   
+   using namespace i_am_cool;
+
+   int main(){
+   hello_world();
+   return COMPLETE_FAILURE;
+   }
+
+paragraph at the end of this nice little story.

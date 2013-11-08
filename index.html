@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset = "utf-8"/>
+	<title>RemNote</title>
+	<style>
+		@import "css/reset.css";
+		@import "css/grid.css";
+		@import "js/plugins/highlight/styles/github.css";
+	</style>
+	<link rel = "stylesheet/less" type = "text/css" href = "./css/default.less"/>
+	<script src = "./js/less.min.js"></script>
+	<script src = "./js/jquery.min.js"></script>
+	<script src = "./js/plugins/highlight/highlight.pack.js"></script>
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+			showMathMenu : false,
+			jsMath2jax: {
+				preview: "none"
+			},
+			"HTML-CSS": {
+			    preferredFont: "STIX",
+			    scale: 100
+			},
+			Tex : {
+				extensions: [ "mhchem.js" ]
+			}
+		});
+</script>
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+	<script src = "./js/parser.js"></script>
+	<script>
+		$( function(){
+			hljs.initHighlightingOnLoad();
+			$( "#add-note-button" ).click( function( e ){
+				e.preventDefault();
+				$( "div.notes" ).prepend(
+					'<div class = "note">'
+					+ '<div class = "note-header">'
+					+ '<div class = "note-heading">'
+					+ '<h2>Probna nota</h2>'
+					+ '<p>Neki tamo kratki uvod nečeg tamo.</p>'
+					+ '<div class = "note-date">&mdash; 19<sup>th</sup> October 2013, 18:42</div>'
+					+ '</div>'
+					+ '<div class = "note-group">'
+					+ '<img src = "./img/groups/algorithms.png"/ >'
+					+ '</div>'
+					+ '<div class = "note-opt">'
+					+ '		<a class = "edit">Edit</a>'
+					+ '		<a class = "print">Print</a>'
+					+ '		<a class = "download nomargin">Download as PDF</a>'
+					+ '		<a class = "delete">Delete</a>'
+					+ '</div>'
+					+ '<div class = "note-info">'
+					+ '<div class = "note-group-name info-line">Digital Logic</div>'
+					+ '<div class = "note-tags info-line">'
+					+ '<span class = "tag">Boolean logic</span>'
+					+ '</div>'
+					+ '<div class = "note-attachments info-line">No attachments</div>'
+					+ '</div>'
+					+ '</div>'
+					+ '<div class = "note-content">'
+					+ parseNote( $( "#add-note-content" ).val() )
+					+ '</div></div>'
+				);
+				$( "pre code" ).each( function( i, e ) { 
+	  				hljs.highlightBlock( e ); 
+	  			});
+	  			preLiner();
+	  			MathJax.Hub.Queue( [ "Typeset", MathJax.Hub ] );
+			});  			
+		});
+	</script>
+	<link rel="shortcut icon" href="./favicon.ico" />
+</head>
+<body>
+	<div id = "main-header-wrapper">
+		<header class = "main">
+			<div style = "overflow: hidden;">
+				<div class = "logo">
+					<img src = "./img/UiDesign/logo6.png"/>
+					<h1>REM<span>NOTE</span></h1>
+				</div>
+				<nav class = "main">
+					<ul>
+						<li class = "main-link">Main</li>
+						<li class = "notes-link">Notes</li>
+						<li class = "shorts-link">Shorts</li>
+						<li class = "reminders-link">Reminders</li>
+						<li class = "login-link">Login</li>
+					</ul>
+				</nav>
+			</div>			
+		</header>
+	</div>
+	<div class = "opt-wrapper">
+		<nav class = "options">
+			<div class = "page-title-container"><h3>Notes from <em>Algorithms</em></h3></div>
+			<div class = "search">
+				<form>
+					<input type = "text" id = "search-term"/>
+					<button id = "search-button"><img src = "./img/ui/nav/search-48.png"/></button>
+				</form>
+			</div>
+			<ul>
+				<li class = "">Add</li>
+				<li class = "">Filter</li>
+				<li class = "">Sort</li>
+				<li class = "right">Settings</li>	
+				<li class = "right">Search</li>			
+			</ul>
+		</nav>
+	</div>
+	<div class = "main">
+		<div class = "notes">
+			<article class = "note">
+				<div class = "group-img">
+					<img src = "./img/groups/algorithms.png"/>				
+				</div>
+				<div class = "note-content">
+					<h3>A test and display note</h3>
+					<div class = "note-text-short">
+						<p>
+							Lorem ipsum ..., the most common sentence on the entire Internet. This is a story of how 
+							it came to be, from the <a href = "">ancient times</a> of the Guttenberg's first printing press to the 
+							invention of the World Wide Web.
+						</p>
+					</div>
+					<div class = "note-info">
+						<div class = "tags">
+							<span class = "tag">Gauss elimination</span>
+							<span class = "tag">Vectors</span>
+							<span class = "tag">Linear algebra</span>
+						</div>
+						<div class = "date">Monday, September 2<sup>nd</sup> 2013</div>
+					</div>
+				</div>
+			</article>
+		
+			<article class = "note alt">
+				<div class = "group-img">
+					<img src = "./img/groups/university.png"/>
+				</div>
+				<div class = "note-content">
+					<h3>Something else</h3>
+					<div class = "note-text-short">
+						<p>
+							Lorem ipsum ..., the most common sentence on the <b>entire Internet</b>. This is a story of how 
+							it came to be, from the ancient times of the Guttenberg's first printing press to the 
+							invention of the World Wide Web.
+						</p>
+					</div>
+					<div class = "note-info">
+						<div class = "tags">
+							<span class = "tag">Gauss elimination</span>
+							<span class = "tag">Vectors</span>
+							<span class = "tag">Linear algebra</span>
+						</div>
+						<div class = "date">yesterday, 18:36</div>
+					</div>
+				</div>
+			</article>
+		
+			<article class = "note">
+				<div class = "group-img">
+					<img src = "./img/groups/restaurant.png"/>				
+				</div>
+				<div class = "note-content">
+					<h3>And behold, yet another note</h3>
+					<div class = "note-text-short">
+						<p>
+							Lorem ipsum ..., the most common sentence on the entire Internet. This is a story of how 
+							it came to be, from the ancient times of the Guttenberg's first printing press to the 
+							invention of the World Wide Web.
+						</p>
+					</div>
+					<div class = "note-info">
+						<div class = "tags">
+							<span class = "tag">Gauss elimination</span>
+							<span class = "tag">Vectors</span>
+							<span class = "tag">Linear algebra</span>
+						</div>
+						<div class = "date">yesterday, 18:36</div>
+					</div>
+				</div>
+			</article>
+		</div>
+		<div class = "option-div">
+			<h3>Add new note</h3>
+			<form>
+				<textarea id = "add-note-content">Here goes your content</textarea>
+				<button id = "add-note-button">Add note</button>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

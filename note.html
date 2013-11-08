@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset = "utf-8"/>
+	<title>RemNote</title>
+	<style>
+		@import "css/reset.css";
+		@import "css/grid.css";
+	</style>
+	<link rel = "stylesheet/less" type = "text/css" href = "./css/default.less"/>
+	<script src = "./js/less.min.js"></script>
+	<link rel="shortcut icon" href="./favicon.ico" />
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+			showMathMenu : false,
+			jsMath2jax: {
+				preview: "none"
+			},
+			"HTML-CSS": {
+			    preferredFont: "STIX",
+			    scale: 100
+			},
+			Tex : {
+				extensions: [ "mhchem.js" ]
+			}
+		});
+</script>
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+	<div id = "main-header-wrapper">
+		<header class = "main">
+			<div class = "logo">
+				<img src = "./img/UiDesign/logo6.png"/>
+				<h1>remnote</h1>
+			</div>
+			<nav class = "main">
+				<ul>
+					<li class = "notes-link">Notes</li>
+					<li class = "shorts-link">Shorts</li>
+					<li class = "reminders-link">Reminders</li>
+					<li class = "login-link">Login</li>
+				</ul>
+			</nav>
+		</header>
+	</div>
+	<div class = "main">
+		<div class = "note">
+			<div class = "note-header">
+				<div class = "note-heading">
+					<h2>Princip rada poluvodičke diode</h2>
+					<p>Dioda je nelinearni poluvodički elektronički element s dva priključka koji posjeduje ispravljačka svojstva. Poluvodičke diode se izvode se temelju pn-spoja ili na temelju spoja metal–poluvodič. Diode se mogu razvrstati po materijalu na kojemu su rađene i po tipu.</p>
+					<div class = "note-date">&mdash; 19<sup>th</sup> October 2013, 18:42</div>
+				</div>
+				<div class = "note-group">
+					<img src = "./img/groups/algorithms.png"/>
+				</div>
+				<div class = "note-opt">
+					<a class = "edit">Edit</a>
+					<a class = "print">Print</a>
+					<a class = "download nomargin">Download as PDF</a>
+					<a class = "delete">Delete</a>
+				</div>
+				<div class = "note-info">
+					<div class = "note-category-name info-line">Digital Logic</div>
+					<div class = "note-tags info-line">
+						<span class = "tag">Diode</span>
+						<span class = "tag">Active elements</span>
+						<span class = "tag">Electric circuits</span>
+						<span class = "tag">Boolean logic</span>
+					</div>
+					<div class = "note-attachments info-line">No attachments</div>
+				</div>
+			</div>
+			<div class = "note-content">
+			<h3>Further improvements and features for implementation</h3>
+			<p>Beside thinking of a new name for the app, one that would make possible retaning the current logo image, 
+			<b>designing a simple, yet truly beautiful logo</b> for the app must be a priority, together with resolving the 
+			main header and navigation between notes, reminders and other future options. Also, finding and/or creating 
+			a proper background image should also be done as soon as possible. On the server side of the project, 
+			a <b>.tk domain should be registered</b>, hosting server acquired, most likely on the <a href = "">HeliosHost</a>,
+			Ruby on Rails web technology investigated, and ultimately a choice of programming language must be made.</p>
+			<h3>Introduction, and a very very long heading level 3 used as a design aid</h3>
+			<p>A p–n diode is a type of two-terminal semiconductor diode based upon the p–n junction that conducts current in only one direction, made by joining a p-type semiconducting layer to an n-type semiconducting layer. For a discussion of dopant impurities and the terminology p- and n-type. see Doping (semiconductor).</p>
+
+<p>The figure shows two of the many possible structures used for p–n semiconductor diodes, both adapted to increase the voltage the devices can withstand in reverse bias. The top structure uses a mesa to avoid a sharp curvature of the p+-region next to the adjoining n-layer. The bottom structure uses a lightly doped p-guard-ring at the edge of the sharp corner of the p+-layer to spread the voltage out over a larger distance and reduce the electric field. (Superscripts like n+ or n− refer to heavier or lighter impurity doping levels.)</p>
+
+<pre><code><span class = "line"><span class = "ln">1</span>asdf 1324</span></code></pre>
+
+<h3>Electrical behavior</h3>
+<p>The ideal diode has zero resistance for the forward bias polarity, and infinite resistance (conducts zero current) for the reverse voltage polarity. In other words, the semiconductor diode acts as an electrical rectifier.</p>
+
+<p>The semiconductor diode is not ideal. As shown in the figure, the diode does not conduct appreciably until a nonzero knee voltage (also called the turn-on voltage or the cut-in voltage) is reached. Above this voltage the slope of the current-voltage curve is not infinite (on-resistance is not zero). In the reverse direction the diode conducts a nonzero leakage current (exaggerated by a smaller scale in the figure) and at a sufficiently large reverse voltage below the breakdown voltage the current increases very rapidly with more negative reverse voltages.</p>
+
+<p>As shown in the figure, the on and off resistances are the reciprocal slopes of the current-voltage characteristic at a selected bias point:
+
+    $$r_D = \left . \frac {\Delta v_D}{\Delta i_D} \right| _{v_D=V_{BIAS}}$$,
+
+where \(rD\) is the resistance and \(ΔiD\) is the current change corresponding to the diode voltage change \(ΔvD\) at the bias \(vD=VBIAS\).</p>
+			</div>
+			<div class = "note-footer">
+				Back to top
+			</div>
+		</div>
+	</div>
+</body>
+</html>
