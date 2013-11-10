@@ -1,0 +1,108 @@
+.heapBox{
+	clear: both;
+	display: block;
+	line-height: 35px;
+	position: relative;
+}
+
+.heapBox *{
+	margin: 0;
+	outline: none;
+	padding: 0;
+}
+
+.heapBox.disabled .holder{
+	color: #A7B6B7;
+	height: 35px;
+}
+
+.heapBox a{
+	color: #333 !important;
+	font-family: "Roboto Slab" !important;
+	text-decoration: none !important;
+}
+
+.heapBox .holder{
+	background: #bbb;
+	height: 35px;
+	overflow: hidden;
+	text-indent: 20px;
+	width: 200px;
+}
+
+.heapBox .handler{
+	background: #bbb url( ../img/ui/select/updown.png ) center center;
+	border-left: 1px solid #afafaf;
+	height: 35px;
+	width: 25px;
+}
+
+.heapBox .holder,.heapBox .handler{
+	float: left;
+	position: relative;
+	z-index: 10;
+}
+
+.heapBox div.heap{
+	left: 0;
+	list-style-type: none;
+	overflow: hidden;
+	position: absolute;
+	top: 37px;
+	width: 226px;
+}
+
+.heapBox .heap .heapOptions{
+	display: block;
+	overflow: hidden;
+	position: relative;
+	z-index: 20;
+}
+
+.heapBox .heap a.sliderUp{
+	background: #bbb url( ../img/ui/select/up.png ) no-repeat center center;
+	border-bottom: 1px solid #aaa;
+	display: block;
+	height: 15px;
+	position: absolute;
+	top: 0px;
+	width: 100%;
+	z-index: 30;
+}
+
+.heapBox .heap a.sliderDown{
+	background: #bbb url( ../img/ui/select/down.png ) no-repeat center center;
+	border-top: 1px solid #aaa;
+	bottom: 0px;
+	display: block;
+	height: 15px;
+	position: absolute;
+	width: 100%;
+	z-index: 30;
+}
+
+.heapBox .heap .heapOptions .heapOption {
+	display: block;
+	height: 35px;
+	position: relative;
+	z-index: 20;
+}
+
+.heapBox .heap .heapOptions .heapOption a{
+	background: #bbb;
+	display: block;
+	text-indent: 20px;
+	width: 100%;
+}
+
+.heapBox .heap .heapOptions .heapOption a:hover{
+	background: #aaa;
+}
+
+.heapBox .heap .heapOptions .heapOption a.selected{
+	background: #aaa;
+}
+
+.heapBox .heap .heapOptions .heapOption a.disabled{
+	color: #9CA5A5;
+}

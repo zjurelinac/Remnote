@@ -109,16 +109,22 @@
 						
 						// Change textarea height if twin plus the height of one line differs more than 3 pixel from textarea height
 						if(Math.abs($twin.height() + lineHeight - $textarea.height()) > 3){
-							
 							var goalheight = $twin.height()+lineHeight;
+
+							var ev = jQuery.Event( 'heightChange' );
+							
 							if(goalheight >= maxheight) {
 								setHeightAndOverflow(maxheight,'auto');
+								ev.newHeight = maxheight;
 							} else if(goalheight <= minheight) {
 								setHeightAndOverflow(minheight,'hidden');
+								ev.newHeight = minheight;
 							} else {
 								setHeightAndOverflow(goalheight,'hidden');
+								ev.newHeight = goalheight;
 							}
 							
+							$textarea.trigger( ev );
 						}
 						
 					}

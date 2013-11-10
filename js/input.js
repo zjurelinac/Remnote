@@ -5,7 +5,8 @@ function noteInputer(){
 		if( e.keyCode == 9 ){	// tab, prevent focus change
 		
 			e.preventDefault();
-			$this.val( $this.val() + "\t" );
+			console.log( $this.caret() );
+			$this.caret( '\t' );
 			
 		} else if( e.keyCode == 13 ){	// enter, check for code and lists
 			

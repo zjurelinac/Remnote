@@ -11,3 +11,7 @@ function twoDigitsNum( x ){
 	if( x % 10 == x ) return "0" + x;
 	return x;
 }
+
+function generateRandomInt( a, b ){
+	return Math.floor( Math.random() * ( b - a + 1 ) + a );
+}

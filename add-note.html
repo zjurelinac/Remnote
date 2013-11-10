@@ -3,16 +3,13 @@
 <head>
 	<meta charset = "utf-8"/>
 	<title>RemNote</title>
-	<style>
-		@import "css/reset.css";
-		@import "css/pomegranate.css";
-	</style>
 	<link rel = "stylesheet/less" type = "text/css" href = "./css/default.less"/>
 	<script src = "./js/less.min.js"></script>
 	<link rel="shortcut icon" href="./favicon.ico" />
 	<script src = "./js/jquery.min.js"></script>
 	<script src = "./js/plugins/elastic/jquery.elastic.js"></script>
 	<script src = "./js/plugins/heapbox/jquery.heapbox.min.js"></script>
+	<script src = "./js/plugins/jquery.caret.js"></script>
 	<script src = "./js/utility.js"></script>
 	<script src = "./js/input.js"></script>
 	<script type = "text/x-mathjax-config">
@@ -35,7 +32,44 @@
 		$( function(){
 			$( ".note-date" ).html( "&mdash; " + getCurrDateString() );
 			noteInputer();
-		    $('.selectpicker').heapbox();
+		    $('.selectpicker').heapbox( { 'heapsize' : 200, effect : { 'speed' : 'fast' } } );
+		    
+		    var $content = $( '#input-note-content' );
+		    var $toolbar = $( '#input-content-toolbar' );
+		    
+		    var blurTimer, isBlurAllowed = true;
+		    
+		    function blurContent(){
+		       	console.log( 'Check. ' + isBlurAllowed );
+		       	
+		    	if( !isBlurAllowed ){
+		    		$content.focus();
+		    		return;
+		    	}
+		    	
+		    	console.log( 'Can do. ' + isBlurAllowed );
+		    	$toolbar.fadeOut();
+		    	$content.css( 'background', 'none' );
+		    }
+		    
+		    $content.focus( function( e ){
+		    	$toolbar.fadeIn();
+		    	$content.css( 'background', '#cfcfcf' );
+		    }).blur( function( e ){
+		    	blurContent();
+		    }).on( 'heightChange', function( e ){
+		    	$toolbar.css( 'height', e.newHeight + 40 );
+		    });
+		    
+		    $toolbar.hover( function(){
+		    	isBlurAllowed = false;
+		    	console.log( 'Prevent. ' + isBlurAllowed );
+		    }, function(){
+		    	isBlurAllowed = true;
+		    	console.log( 'Allow. ' + isBlurAllowed );
+		    }).click( function(){
+		    	$content.focus();
+		    });
 		});
 	</script>
 </head>
@@ -60,8 +94,8 @@
 		<div class = "note add-note">
 			<div class = "note-header">
 				<div class = "note-heading">
-					<input type = "text" class = "input-note-heading" id = "input-note-heading"/>
-					<textarea class = "input-note-short-descr" rows = "4">A short description of the note</textarea>
+					<input type = "text" class = "input-note-heading" id = "input-note-heading" value = "Note title"/>
+					<textarea class = "input-note-short-descr" rows = "4">A short description of the note or an introduction to it.</textarea>
 					<div class = "note-date">&mdash; 19<sup>th</sup> October 2013, 18:42</div>
 				</div>
 				<div class = "note-group">
@@ -75,14 +109,26 @@
 				</div>
 				<div class = "note-info">
 					<div class = "note-category-name info-line">
-						<select class = "selectpicker">
-							<option value = "0">Digital logic</option>
-							<option value = "1">University</option>
-							<option value = "2">Mathematics</option>
-							<option value = "4">Physics</option>
-							<option value = "5">Reading</option>
-							<option value = "6">Programming</option>
-						</select>
+						<div id = "note-category-pick-wrap" class = "select-wrap">
+							<select class = "selectpicker">
+								<option value = "0">Digital logic</option>
+								<option value = "1">University</option>
+								<option value = "2">Mathematics</option>
+								<option value = "4">Physics</option>
+								<option value = "5">Reading</option>
+								<option value = "6">Programming</option>
+							</select>
+						</div>
+						<div id = "note-group-pick-wrap" class = "select-wrap">
+							<select id = "note-group-pick" class = "selectpicker">
+								<option value = "0">Digital logic</option>
+								<option value = "1">University</option>
+								<option value = "2">Mathematics</option>
+								<option value = "4">Physics</option>
+								<option value = "5">Reading</option>
+								<option value = "6">Programming</option>
+							</select>
+						</div>
 					</div>
 					<div class = "note-tags info-line">
 						<span class = "tag">Diode</span>
@@ -95,6 +141,17 @@
 			</div>
 			<div class = "note-content">
 				<textarea id = "input-note-content" class = "input-note-content">The content</textarea>
+				<div id = "input-content-toolbar" class = "input-content-toolbar">
+					<ul>
+						<li><img src = "./img/ui/editor/text-26.png"/></li>
+						<li><img src = "./img/ui/editor/bold-26.png"/></li>
+						<li><img src = "./img/ui/editor/link-26.png"/></li>
+						<li><img src = "./img/ui/editor/add_image-26.png"/></li>
+						<li><img src = "./img/ui/editor/outline-26.png"/></li>
+						<li><img src = "./img/ui/editor/square_root-26.png"/></li>
+						<li><img src = "./img/ui/editor/info-26.png"/></li>
+					</ul>
+				</div>
 			</div>
 			<div class = "note-footer">
 				Back to top

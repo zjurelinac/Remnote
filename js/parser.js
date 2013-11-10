@@ -50,7 +50,28 @@ function parseNote( x ){
 				parsed += "<code>" + temp + "</code>";
 				i += len + 1;
 				break;
-				
+			} case '[':{
+			
+				if( i < x.length-1 && x.charAt( i + 1 ) == '[' ){ // here we have a link
+					var endPos = x.indexOf( ']]', i );
+					if( endPos != -1 ) endPos += 2;
+					var temp = x.slice( i, endPos );
+					if( temp.indexOf( '|' ) != -1 ){						
+						temp = temp.slice( 2, temp.length - 2 );
+						var loc = temp.indexOf( "|" );
+						var t1 = temp.slice( 0, loc ), t2 = temp.slice( loc+1 );
+						parsed += "<a href = '" + ( t1.indexOf( "://" ) == -1 ? "http://" : "" ) + t1 + "'>" + t2 + "</a>";
+						i += temp.length + 3;
+					} else {
+						temp = temp.slice( 2, temp.length - 2 );
+						console.log( temp );					
+						parsed += "<a href = '" + ( temp.indexOf( "://" ) == -1 ? "http://" : "" ) + temp + "'>" + temp + "</a>";							
+						i += temp.length + 3;
+					}
+				} else 
+					parsed += tChar;
+								
+				break;
 			} case '\n':{	
 						
 				if( i == x.length - 1 ){
@@ -95,7 +116,8 @@ function parseNote( x ){
 					while( S.length )
 						parsed += S.pop();
 				}
-				if( S[ S.length - 1 ] === "</span></code></pre>" ) parsed += "</span><span class = 'line'>";
+				if( S[ S.length - 1 ] === "</span></code></pre>" ) 
+					parsed += "</span><span class = 'line'>";
 				parsed += '\n';
 				break;
 				
@@ -114,14 +136,16 @@ function parseNote( x ){
 		++i;
 	}
 	
-	parsed = parsed.substring( 0, parsed.length - 2 );
+	parsed = parsed.substring( 0, parsed.length - 1 );
 	while( S.length )
 		parsed += S.pop();
 	return parsed;
 }
 
 function preLiner(){
-	$( "pre code span.line" ).each( function( i ){
-		$( this ).prepend( "<span class = 'ln'>" + i + "</span>" ).html( $( this ).html().replace( '\n', " " ) );
+	$( "pre code" ).each( function(){
+		$( this ).children( "span.line" ).each( function( i ){
+			$( this ).prepend( "<span class = 'ln'>" + i + "</span>" ).html( $( this ).html().replace( '\n', " " ) );
+		});
 	});
 }

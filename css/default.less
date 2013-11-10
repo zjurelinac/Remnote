@@ -1,3 +1,7 @@
+@import "reset.css";
+@import "select.css";
+@import "../js/plugins/highlight/styles/github.css";
+
 /** Variables **/
 
 /* Fonts */
@@ -152,7 +156,7 @@ header.main{
 		
 		img{
 			float: left;
-			margin-right: 10px;
+			margin-right: 5px;
 		}
 	
 		h1{
@@ -254,6 +258,11 @@ nav.options{
 			
 			&.right{
 				float: right;
+			}
+			
+			&.opt-settings{
+				background: @accent;
+				padding: 12px;
 			}
 		}
 	}
@@ -394,6 +403,7 @@ article.note{
 	}
 	
 }
+
 /* Single note display */
 div.note{
 	background: @backLight;
@@ -464,6 +474,10 @@ div.note{
 				margin-right: 40px;
 				padding: 2px 0;
 				padding-left: 40px;
+				
+				em{
+					font-weight: 400;
+				}
 			}		
 			
 			.note-attachments{
@@ -522,6 +536,7 @@ div.note{
 	
 	.note-content{
 		clear: both;
+		float: left;
 		padding: 60px 60px;
 		padding-top: 30px;
 		width: 840px;
@@ -591,6 +606,7 @@ div.note{
 			padding: 12px 12px;
 			padding-left: 6px;
 			position: relative;
+			tab-size: 4;
 			
 			&:before{
 				background: #bbb;
@@ -626,12 +642,13 @@ div.note{
 	}
 	
 	.note-footer{
+		border-top: 4px solid @accent;
+		clear: both;
 		font-family: @headerFont;
 		font-size: 18px;
 		font-weight: bold;
 		line-height: 24px;
-		padding: 60px;
-		padding-top: 30px;
+		padding: 30px 60px;
 	}
 }
 
@@ -666,19 +683,85 @@ div.add-note{
 		width: 610px;
 	}
 
-	.note-header .note-heading .note-date{
-		font-size: 16px;
-		line-height: 20px;
-		margin-top: 4px;
+	.note-header {
+		.note-info .note-category-name{
+			
+			.select-wrap{
+				float: left;
+				
+				&:first-child{
+					margin-right: 20px;
+					
+					.heapBox{
+						
+						margin-left: -45px;
+					
+						.holder{
+							background: @accent url( ../img/ui/note/category-26-alt.png ) no-repeat 5px center;
+							text-indent: 45px;						
+							color: #ddd !important;
+						}
+					
+						.handler{
+							background: @accent url( ../img/ui/select/updown-light.png ) center center;							
+							border-left: 1px solid @accentLight;
+						}
+						
+						.heap {
+							background: @accent;
+						}
+					}
+				}
+			}
+		}
+	
+		.note-heading .note-date{
+			font-size: 16px;
+			line-height: 20px;
+			margin-top: 4px;
+		}
 	}
 
 	.input-note-content{
 		background: none;
+		float: left;
 		font-family: @monoFont;
 		font-size: 18px;
-		height: auto;
+		min-height: 360px;
 		overflow: hidden;
-		width: 800px;
+		width: 750px;
+		
+		&:focus{
+			outline: none;
+		}
+	}
+	
+	#input-content-toolbar{
+		background: @accent;
+		display: none;
+		float: right;
+		height: 400px;
+		position: relative;
+		width: 50px;
+		
+		ul{
+			top: 0;	
+		}
+		
+		li{
+			list-style: none;
+			margin: 0;
+			padding: 12px;
+			
+			&:hover{
+				background: @accentLight;
+				cursor: pointer;
+			}
+			
+			img{
+				display: block;
+			}
+		}
 	}
 
 }
