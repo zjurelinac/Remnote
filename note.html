@@ -6,6 +6,9 @@
 	<link rel = "stylesheet/less" type = "text/css" href = "./css/default.less"/>
 	<script src = "./js/less.min.js"></script>
 	<link rel="shortcut icon" href="./favicon.ico" />
+	<script src = "./js/jquery.min.js"></script>
+	<script src = "./js/utility.js"></script>
+	<script src = "./js/tooltip.js"></script>
 	<script type="text/x-mathjax-config">
 		MathJax.Hub.Config({
 			showMathMenu : false,
@@ -22,6 +25,11 @@
 		});
 </script>
 	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+	<script>
+		$( function(){
+			$( '#tooltip-test' ).tooltip( "Hello this is a tooltip" );
+		});
+	</script>
 </head>
 <body>
 	<div id = "main-header-wrapper">
@@ -85,14 +93,9 @@
 
 <h3>Electrical behavior</h3>
 <p>The ideal diode has zero resistance for the forward bias polarity, and infinite resistance (conducts zero current) for the reverse voltage polarity. In other words, the semiconductor diode acts as an electrical rectifier.</p>
-
+<div class = "img-wrap"><img src = "./img/other/mux.png"/><div class = "caption">Image of a 4/1 multiplexer</div></div>
 <p>The semiconductor diode is not ideal. As shown in the figure, the diode does not conduct appreciably until a nonzero knee voltage (also called the turn-on voltage or the cut-in voltage) is reached. Above this voltage the slope of the current-voltage curve is not infinite (on-resistance is not zero). In the reverse direction the diode conducts a nonzero leakage current (exaggerated by a smaller scale in the figure) and at a sufficiently large reverse voltage below the breakdown voltage the current increases very rapidly with more negative reverse voltages.</p>
-
-<p>As shown in the figure, the on and off resistances are the reciprocal slopes of the current-voltage characteristic at a selected bias point:
-
-    $$r_D = \left . \frac {\Delta v_D}{\Delta i_D} \right| _{v_D=V_{BIAS}}$$,
-
-where \(rD\) is the resistance and \(ΔiD\) is the current change corresponding to the diode voltage change \(ΔvD\) at the bias \(vD=VBIAS\).</p>
+<p> <b id = "tooltip-test">Here will the tooltip be.</b> And something else</p>
 			</div>
 			<div class = "note-footer">
 				Back to top

@@ -104,7 +104,7 @@ input{
 	margin: 0;
 	
 	&:focus{
-		outline: 2px solid @accentLight;
+		outline: none;
 	}
 }
 
@@ -117,7 +117,7 @@ textarea{
 	resize: none;
 	
 	&:focus{
-		outline: 2px solid @accentLight;
+		outline: none;
 	}
 }
 
@@ -639,6 +639,27 @@ div.note{
 				}
 			}
 		}
+		
+		.img-wrap{
+			border: 1px solid #bbb;
+			clear: both;
+			margin: 24px 30px;
+			text-align: center;
+			
+			img{
+				display: block;
+				margin: 0 auto;
+			}
+			
+			.caption{
+				border-top: 1px solid #bbb;
+				color: #777;
+				font-family: @headerFont;
+				line-height: 24px;
+				margin: 6px 30px;
+				padding-top: 6px;	
+			}
+		}
 	}
 	
 	.note-footer{
@@ -666,7 +687,7 @@ div.add-note{
 		width: 640px;
 		
 		&:focus{
-			outline: 2px solid @accentLight;
+			background: #ddd;
 		}
 	}
 	
@@ -676,39 +697,46 @@ div.add-note{
 		display: block;
 		font-family: @headerFont;
 		font-size: 16px;
+		height: 66px;
 		margin: 0;
-		margin-left: 30px;
+		margin-left: 22px;
 		overflow: hidden;
-		padding: 0;
+		padding: 0 8px;
 		width: 610px;
+		
+		&:focus{
+			background: #ddd;
+		}
 	}
 
 	.note-header {
-		.note-info .note-category-name{
-			
-			.select-wrap{
-				float: left;
+		.note-info{
+		
+			.note-category-name{						
+				.select-wrap{
+					float: left;
 				
-				&:first-child{
-					margin-right: 20px;
+					&:first-child{
+						margin-right: 20px;
 					
-					.heapBox{
+						.heapBox{
 						
-						margin-left: -45px;
+							margin-left: -45px;
 					
-						.holder{
-							background: @accent url( ../img/ui/note/category-26-alt.png ) no-repeat 5px center;
-							text-indent: 45px;						
-							color: #ddd !important;
-						}
+							.holder{
+								background: @accent url( ../img/ui/note/category-26-alt.png ) no-repeat 5px center;
+								text-indent: 45px;						
+								color: #ddd !important;
+							}
 					
-						.handler{
-							background: @accent url( ../img/ui/select/updown-light.png ) center center;							
-							border-left: 1px solid @accentLight;
-						}
+							.handler{
+								background: @accent url( ../img/ui/select/updown-light.png ) center center;							
+								border-left: 1px solid @accentLight;
+							}
 						
-						.heap {
-							background: @accent;
+							.heap {
+								background: @accent;
+							}
 						}
 					}
 				}
@@ -716,9 +744,8 @@ div.add-note{
 		}
 	
 		.note-heading .note-date{
-			font-size: 16px;
 			line-height: 20px;
-			margin-top: 4px;
+			margin-top: 12px;
 		}
 	}
 
@@ -763,6 +790,20 @@ div.add-note{
 			}
 		}
 	}
-
 }
+
+/* Tooltip class */
+
+.jQtooltip{
+	background: #333;
+	color: #eee;
+	display: none;
+	font-family: @headerFont;
+	font-size: 17px;
+	font-weight: 400;
+	line-height: 24px;
+	padding: 8px 12px;
+	position: absolute;
+}
+
 
