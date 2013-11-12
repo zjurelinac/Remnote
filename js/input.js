@@ -7,8 +7,8 @@ function noteInputer(){
 		if( e.keyCode == 9 ){	// tab, prevent focus change
 		
 			e.preventDefault();
-			console.log( $this.caret() );
-			$this.caret( '    ' );		/// Enable different tab sizes
+			//console.log( $this.caret() );
+			$this.caret( '    ' );		/// Enable different tab sizes; TS = 4
 			
 		} else if( e.keyCode == 13 ){	// enter, check for code and lists
 			// if indented, continue indentation
@@ -16,10 +16,10 @@ function noteInputer(){
 			var ts =  $this.val().slice( 0, $this.caret() );
 			
 			ts = ts.slice( ts.lastIndexOf( '\n' )+1 );
-			console.log( ts );
+			//console.log( ts );
 						
 			var ma = ts.match( /^[\ \t]* /g );
-			console.log( ma );
+			//console.log( ma );
 			if( ma != undefined && ma != null )
 				$this.caret( '\n' + ma[ 0 ] );
 			else 
@@ -59,7 +59,8 @@ function toolbarActions(){
 	
 	});
 	
-	$toolbar.find( '#show-help' ).click( function(){
+	$toolbar.find( '#show-info' ).tooltip( 'Tip tip tip<br/ >Hip hip hip', { type : 'special', position : 'left' } )
+	.click( function(){
 	
 	});
 }

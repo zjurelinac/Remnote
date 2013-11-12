@@ -11,6 +11,7 @@
 	<script src = "./js/plugins/heapbox/jquery.heapbox.min.js"></script>
 	<script src = "./js/plugins/jquery.caret.js"></script>
 	<script src = "./js/utility.js"></script>
+	<script src = "./js/tooltip.js"></script>
 	<script src = "./js/input.js"></script>
 	<script type = "text/x-mathjax-config">
 		MathJax.Hub.Config({
@@ -38,23 +39,25 @@
 		    var $toolbar = $( '#input-content-toolbar' );
 		    var $toolbarInner = $toolbar.children( 'ul' );
 		    
-		    var isBlurAllowed = true;
+		    $toolbar.attr( 'data-can-blur', 'true' );
 		    
 		    // blur only if mouse not over toolbar
 		    function blurContent(){
 		               	
-		    	if( !isBlurAllowed ){
+		    	if( $toolbar.attr( 'data-can-blur' ) === 'false' ){
 		    		$content.focus();
 		    		return;
 		    	}		    	
-		    	$toolbar.fadeOut( 100 );
+		    	//$toolbar.fadeOut( 100 ).css( 'visibility', 'hidden' ).show();
+		    	$toolbar.css( 'visibility', 'hidden' );
 		    	$content.css( {'background' : 'none', 'border-left' : 'none', 'padding-left' : '20px' } );
 		    	
 		    }
 		    
 		    $content.focus( function( e ){
-		    		    
-		    	$toolbar.fadeIn( 100 ).css( 'height', $content.outerHeight() );
+		    	   
+		    	//$toolbar.hide().css( 'visibility', 'visible' ).fadeIn( 100 ).css( 'height', $content.outerHeight() );
+		    	$toolbar.css( 'visibility', 'visible' ).css( 'height', $content.outerHeight() );
 		    	$content.css( {'background' : '#cfcfcf', 'border-left' : '15px solid #c1c1c1', 'padding-left' : '5px' } );
 		    	
 		    }).blur( function( e ){
@@ -72,11 +75,11 @@
 		    // set toolbar height to match the textarea
 		    $toolbar.css( 'height', $content.outerHeight() ).hover( function(){
 		    
-		    	isBlurAllowed = false;
+		    	$toolbar.attr( 'data-can-blur', 'false' );
 		    	
 		    }, function(){
 		    
-		    	isBlurAllowed = true;
+		    	$toolbar.attr( 'data-can-blur', 'true' );
 		    	
 		    }).click( function(){
 		    
@@ -134,8 +137,8 @@
 				</div>
 				<div class = "note-info">
 					<div class = "note-category-name info-line">
-						<div id = "note-category-pick-wrap" class = "select-wrap">
-							<select class = "selectpicker">
+						<div id = "note-category-pick-wrap" class = "select-wrap thin">
+							<select id = "note-category-pick" class = "selectpicker">
 								<option value = "0">Digital logic</option>
 								<option value = "1">University</option>
 								<option value = "2">Mathematics</option>
@@ -144,7 +147,7 @@
 								<option value = "6">Programming</option>
 							</select>
 						</div>
-						<div id = "note-group-pick-wrap" class = "select-wrap">
+						<div id = "note-group-pick-wrap" class = "select-wrap thin">
 							<select id = "note-group-pick" class = "selectpicker">
 								<option value = "0">Digital logic</option>
 								<option value = "1">University</option>
@@ -174,6 +177,7 @@
 						<li id = "insert-image"><img src = "./img/ui/editor/add_image-26.png"/></li>
 						<li id = "insert-code"><img src = "./img/ui/editor/outline-26.png"/></li>
 						<li id = "insert-math"><img src = "./img/ui/editor/square_root-26.png"/></li>
+						<li id = "insert-quote"><img src = "./img/ui/editor/quote-26.png"/></li>
 						<li id = "show-info"><img src = "./img/ui/editor/info-26.png"/></li>
 					</ul>
 				</div>

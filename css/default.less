@@ -36,6 +36,10 @@
 	box-shadow: 0 0 8px rgba( 0, 0, 0, 0.1 );
 }
 
+.shade2{	
+	box-shadow: 0 0 4px rgba( 0, 0, 0, 0.15 );
+}
+
 /** General Styles **/
 body{
 	background: @backDark url( ../img/bg/grid.png );
@@ -133,6 +137,82 @@ sup{
 	top: -0.5em;
 }
 
+.heapBox{
+
+	border: 1px solid #aaa;
+
+	a{
+		color: #222;
+	}
+
+	.holder{
+		background: #bbb;
+		color: #333;
+		font-weight: 700;
+	}
+	
+	.handler{
+		background: #bbb url( ../img/ui/select/updown.png ) no-repeat center center;
+	}
+
+	div.heap{
+		background: #bbb;
+		border: 1px solid #aaa;		
+		.shade2;
+		
+		a.sliderUp{
+			background: #b8b8b8 url( ../img/ui/select/up.png ) no-repeat center center;
+			border-bottom: 1px solid #b0b0b0;
+		}
+		
+		a.sliderDown{
+			background: #b8b8b8 url( ../img/ui/select/down.png ) no-repeat center center;
+			border-top: 1px solid #b0b0b0;
+		}
+		
+		.heapOption{
+			
+			a{
+				border-bottom: 1px solid #b5b5b5;
+				color: #555;
+				font-weight: normal;
+			}
+			
+			a:hover{
+				background: #c5c5c5;
+			}
+			
+			a.selected{
+				background: @accent;
+				color: #dadada;
+			}
+		}
+	}
+}
+
+.thin .heapBox{
+	height: 32px;
+	line-height: 32px;
+	
+	.holder{
+		height: 32px;		
+	}
+	
+	.handler{
+		height: 32px;
+	}
+	
+	.heap{
+		top: 40px;
+		
+		.heapOption{
+			height: 32px;
+		}
+	}
+	
+}
+
+
 /** Main design elements **/
 
 #main-header-wrapper{
@@ -156,6 +236,7 @@ header.main{
 		
 		img{
 			float: left;
+			margin-left: -5px;
 			margin-right: 5px;
 		}
 	
@@ -215,15 +296,14 @@ div.main{
 }
 
 div.opt-wrapper{
-	width: 100%;
+	margin: 12px auto;
+	margin-bottom: 24px;
+	width: 960px;
 }
 
 nav.options{
 	color: @foreLight;
-	margin: 24px auto;
-	margin-top: 12px;
 	overflow: auto;
-	width: 960px;
 	
 	.page-title-container{
 		background: @accent;
@@ -261,48 +341,136 @@ nav.options{
 			}
 			
 			&.opt-settings{
-				background: @accent;
+				margin-left: 28px;
 				padding: 12px;
 			}
-		}
-	}
-	
-	div.search{
-		display: none;
-		float: right;
-		
-		#search-term{
-			background: #eee;
-			color: @foreLight;
-			font-size: 20px;
-			font-family: @headerFont;
-			font-weight: 700;
-			float: left;
-			line-height: 1.2;
-			padding: 14px 16px;
-			padding-top: 15px;
-			.shade;
-			width: 200px;
 			
-			&:focus{
-				border: 2px solid @accent;
-				outline: none;
-				padding: 12px 14px;
-				padding-top: 13px;
-			}
-		}
-		
-		#search-button{
-			height: 56px;
-						
-			img{
-				display: block;
+			&.opt-search{
+			
+			/*	padding: 8px 0;
+			
+				input{
+					background: rgba( 255, 255, 255, 0.1 );
+					color: #888;
+					font-family: @headerFont;
+					font-size: 18px;
+					line-height: 24px;
+					margin: 0;
+					padding: 8px;
+					width: 200px;
+					
+					&:focus{
+						background: rgba( 255, 255, 255, 0.2 );
+						border: 1px solid #aaa;
+						color: #555;
+						font-weight: 700;
+						padding: 7px;
+					}
+				}
+				
+				&:hover{
+					cursor: auto;
+				}*/
 			}
 		}
 	}
 }
 
+div.option-box{
+	background: @backLight;
+	border-bottom: 4px solid @accent;
+	clear: both;
+	display: none;
+	float: left;
+	margin-top: 24px;
+	margin-bottom: 24px;
+	.shade;
+	width: 960px;
+	
+	&.sort-options{
+		display: none;
+	}
+	
+	.option-box-name{
+		float: right;
+		
+		a{
+			background: @accent;
+			color: #dadada;
+			display: block;
+			padding: 12px 25px;
+			padding-top: 14px;
+			padding-bottom: 10px;
+			text-decoration: none;
+			
+			&:hover{
+				background: @accentLight;
+				cursor: pointer;
+			}
+			
+			h3{
+				display: block;
+				font-weight: 700;
+				line-height: 35px;
+				text-align: center;
+				width: 55px;
+			
+				em{
+					font-weight: 400;
+				}
+			}
+		}
+	}
+	
+	.option-box-options{
+		float: left;
+		padding: 4px 30px;
+		padding-top: 6px;
+		padding-bottom: 2px;
+	
+		.single-option{
+			float: left;
+			margin-right: 60px;
+			width: 360px;
+			
+			&:last-child{
+				margin-right: 0;
+			}
+			
+			h4{
+				float: left;
+				font-family: @headerFont;
+				font-size: 18px;
+				line-height: 35px;
+				margin-right: 12px;
+				padding: 8px 0;
+			}
+			
+			.heapBox{
+				clear: none;
+				float: right;
+				margin: 6px 0;
+				margin-top: 7px;
+				
+				.holder{
+					text-indent: 15px;
+					width: 175px;
+				}
+				
+				.heap{
+					width: 201px;
+				
+					a{
+						text-indent: 15px;
+					}
+				}
+			}
+		}		
+	}
+}
+
 div.notes{
+	clear: both;
 	color: @foreLight;
 	width: 960px;
 }
@@ -408,7 +576,9 @@ article.note{
 div.note{
 	background: @backLight;
 	border-top: 4px solid @accent;
+	clear: both;
 	color: @foreLight;
+	float: left;
 	margin-bottom: 20px;
 	.shade;
 	width: 960px;
@@ -641,7 +811,8 @@ div.note{
 		}
 		
 		.img-wrap{
-			border: 1px solid #bbb;
+			/*background: #cfcfcf;
+			border: 1px solid #bbb;*/
 			clear: both;
 			margin: 24px 30px;
 			text-align: center;
@@ -687,7 +858,7 @@ div.add-note{
 		width: 640px;
 		
 		&:focus{
-			background: #ddd;
+			background: #dadada;
 		}
 	}
 	
@@ -705,7 +876,7 @@ div.add-note{
 		width: 610px;
 		
 		&:focus{
-			background: #ddd;
+			background: #dadada;
 		}
 	}
 
@@ -716,17 +887,21 @@ div.add-note{
 				.select-wrap{
 					float: left;
 				
+					.heapBox{
+						float: left;
+					}
+				
 					&:first-child{
 						margin-right: 20px;
 					
 						.heapBox{
-						
+							border: 1px solid @accentLight;
 							margin-left: -45px;
 					
 							.holder{
-								background: @accent url( ../img/ui/note/category-26-alt.png ) no-repeat 5px center;
-								text-indent: 45px;						
+								background: @accent url( ../img/ui/note/category-26-alt.png ) no-repeat 5px center;			
 								color: #ddd !important;
+								text-indent: 45px;
 							}
 					
 							.handler{
@@ -735,7 +910,7 @@ div.add-note{
 							}
 						
 							.heap {
-								background: @accent;
+								/*background: @accent;*/
 							}
 						}
 					}
@@ -765,10 +940,11 @@ div.add-note{
 	
 	#input-content-toolbar{
 		background: @accent;
-		display: none;
+		display: block;
 		float: right;
 		height: 400px;
 		position: relative;
+		visibility: hidden;
 		width: 50px;
 		
 		ul{
@@ -804,6 +980,12 @@ div.add-note{
 	line-height: 24px;
 	padding: 8px 12px;
 	position: absolute;
+	
+	&.special{
+		background: #e5e5e5;
+		border: 4px solid @accent;
+		color: #333;
+	}
 }
 
 

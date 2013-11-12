@@ -1,0 +1,110 @@
+#########################################
+#										#
+#  Remnote.tk MySQL settings & info		#
+#										#
+#########################################
+
+database: 	remnote_0
+user: 		remnote_u0
+password:	&JVV!}6(r%SoEv_93v
+privileges: all
+
+
+Table: Users
+==========================================================
+user_id		integer auto_increment primary key not null,
+username	varchar( 32 ) unique not null,
+email		varchar( 64 ) unique not null,
+password	varchar( 255 ) not null
+----------------------------------------------------------
+
+
+Table: UserAdditional
+==============================================
+user_id					integer unique not null,
+registration_code		varchar( 255 ) null,
+password_recovery_key	varchar( 255 ) null
+...
+----------------------------------------------
+
+
+Table: Notes
+================================================================
+note_id			integer primary key auto_increment not null,
+user_id			integer not null,
+title			varchar( 127 ) not null,
+content			text not null,
+time_added		datetime not null,
+category_id		integer null,
+group_id		integer null
+----------------------------------------------------------------
+
+
+Table: Tags
+==========================================================
+tag_id		integer primary_key auto_increment not null,
+user_id		integer not null,
+name		varchar( 32 ) not null
+----------------------------------------------------------
+
+
+Table: Categories
+=============================================================
+category_id 	integer primary_key auto_increment not null,
+user_id			integer not null,
+name			varchar( 32 ) not null,
+image			varchar( 512 ) null
+-------------------------------------------------------------
+
+
+Table: Groups
+=============================================================
+group_id		integer primary_key auto_increment not null,
+user_id			integer not null,
+name			varchar( 32 ) not null,
+category_id		integer not null
+-------------------------------------------------------------
+
+
+Table: TagNoteRelations
+===============================
+tag_id		integer not null,
+note_id		integer not null
+-------------------------------
+
+
+Table: TagReminderRelations
+=================================
+tag_id			integer not null,
+reminder_id		integer not null
+---------------------------------
+
+
+Table: TagShortRelations
+=================================
+tag_id		integer not null,
+short_id	integer not null
+---------------------------------
+
+
+Table: Reminders
+=============================================================
+reminder_id 	integer primary_key auto_increment not null,
+user_id			integer not null,
+content			varchar( 255 ) not null,
+time			datetime not null,
+category_id		integer null,
+object			varchar( 255 ) null			// can link to note or laconic, if to note then obj = "N:note_id", if laconic obj = "L:laconic_id";
+-------------------------------------------------------------
+
+Table: Shorts
+=============================================================
+short_id		integer primary_key auto_increment not null,
+user_id			integer not null,
+content			varchar( 255 ),
+category_id		integer null
+time_added		datetime
+
++ All IDs are unsigned
+
+

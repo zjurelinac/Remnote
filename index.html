@@ -7,7 +7,8 @@
 	<script src = "./js/less.min.js"></script>
 	<script src = "./js/jquery.min.js"></script>
 	<script src = "./js/plugins/highlight/highlight.pack.js"></script>
-	<script type="text/x-mathjax-config">
+	<script src = "./js/plugins/heapbox/jquery.heapbox.min.js"></script>
+	<!--<script type="text/x-mathjax-config">
 		MathJax.Hub.Config({
 			showMathMenu : false,
 			jsMath2jax: {
@@ -22,15 +23,15 @@
 			}
 		});
 </script>
-	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>-->
 	<script src = "./js/parser.js"></script>
 	<script>
-		$( function(){
-			hljs.initHighlightingOnLoad();
-			$( "#add-note-button" ).click( function( e ){
+		>$( function(){
+			//hljs.initHighlightingOnLoad();
+			$( '.selectpick' ).heapbox( { 'heapsize' : 300, effect : { 'speed' : 'fast' } } );
+			/*$( "#add-note-button" ).click( function( e ){
 				e.preventDefault();
-				$( "div.notes" ).prepend(
-					'<div class = "note">'
+				$( "div.notes" ).append( '<div class = "note">'
 					+ '<div class = "note-header">'
 					+ '<div class = "note-heading">'
 					+ '<h2>Probna nota</h2>'
@@ -62,8 +63,8 @@
 	  				hljs.highlightBlock( e ); 
 	  			});
 	  			preLiner();
-	  			MathJax.Hub.Queue( [ "Typeset", MathJax.Hub ] );
-			});  			
+	  			//MathJax.Hub.Queue( [ "Typeset", MathJax.Hub ] );
+			});*/ 			
 		});
 	</script>
 	<link rel="shortcut icon" href="./favicon.ico" />
@@ -90,20 +91,69 @@
 	<div class = "opt-wrapper">
 		<nav class = "options">
 			<div class = "page-title-container"><h3>Notes from <em>Algorithms</em></h3></div>
-			<div class = "search">
-				<form>
-					<input type = "text" id = "search-term"/>
-					<button id = "search-button"><img src = "./img/ui/nav/search-48.png"/></button>
-				</form>
-			</div>
 			<ul>
 				<li class = "opt-add">Add</li>
 				<li class = "opt-filter">Filter</li>
 				<li class = "opt-sort">Sort</li>
-				<li class = "right opt-settings"><img src = "./img/ui/nav/settings-32.png"/></li>	
-				<li class = "right opt-search">Search</li>			
+				<li class = "right opt-settings"><img src = "./img/ui/nav/settings-32-2.png"/></li>	
+				<li class = "right opt-search">Search
+					<!--<form>
+						<input type = "text" value = "Search" id = "search-term"/>
+					</form>-->
+				</li>
 			</ul>
 		</nav>
+		<div class = "option-box filter-options">
+			<form>
+				<div class = "option-box-name"><a><h3>Filter</h3></a></div>
+				<div class = "option-box-options">
+					<div class = "single-option first-option" id = "filter-category-wrap">
+						<h4>Select category:</h4>
+						<select class = "selectpick" id = "filter-category-select">
+							<option value = "0">All categories</option>
+							<option value = "1">University</option>
+							<option value = "2">Mathematics</option>
+							<option value = "4">Physics</option>
+							<option value = "5">Electrical Engineering</option>
+							<option value = "6">Programming</option>
+						</select>
+					</div>
+					<div class = "single-option second-option" id = "filter-group-wrap">
+						<h4>And group:</h4>
+						<select class = "selectpick" id = "filter-group-select">
+							<option value = "0">All groups</option>
+							<option value = "1">University</option>
+							<option value = "2">Mathematics</option>
+							<option value = "4">Physics</option>
+							<option value = "5">Reading</option>
+							<option value = "6">Programming</option>
+						</select>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class = "option-box sort-options">
+			<form>
+				<div class = "option-box-name"><a><h3>Sort</h3></a></div>
+				<div class = "option-box-options">
+					<div class = "single-option first-option" id = "sort-by-wrap">
+						<h4>Sort notes by:</h4>
+						<select class = "selectpick" id = "sort-by-select">
+							<option value = "0">Date added</option>
+							<option value = "1">Category and group</option>
+							<option value = "2">Title (alphabetical)</option>
+						</select>
+					</div>
+					<div class = "single-option second-option" id = "sort-order-wrap">
+						<h4>Order of sorting:</h4>
+						<select class = "selectpick" id = "sort-order-select">
+							<option value = "0">Ascending</option>
+							<option value = "1">Descending</option>
+						</select>
+					</div>
+				</div>
+			</form>
+		</div>
 	</div>
 	<div class = "main">
 		<div class = "notes">
@@ -116,7 +166,7 @@
 					<div class = "note-text-short">
 						<p>
 							Lorem ipsum ..., the most common sentence on the entire Internet. This is a story of how 
-							it came to be, from the <a href = "">ancient times</a> of the Guttenberg's first printing press to the 
+							it came to be, from the ancient times of the Guttenberg's first printing press to the 
 							invention of the World Wide Web.
 						</p>
 					</div>
@@ -139,7 +189,7 @@
 					<h3>Something else</h3>
 					<div class = "note-text-short">
 						<p>
-							Lorem ipsum ..., the most common sentence on the <b>entire Internet</b>. This is a story of how 
+							Lorem ipsum ..., the most common sentence on the entire Internet. This is a story of how 
 							it came to be, from the ancient times of the Guttenberg's first printing press to the 
 							invention of the World Wide Web.
 						</p>
@@ -179,13 +229,13 @@
 				</div>
 			</article>
 		</div>
-		<div class = "option-div">
+		<!--<div class = "option-div">
 			<h3>Add new note</h3>
 			<form>
 				<textarea id = "add-note-content">Here goes your content</textarea>
 				<button id = "add-note-button">Add note</button>
 			</form>
-		</div>
+		</div>-->
 	</div>
 </body>
 </html>

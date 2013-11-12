@@ -1,0 +1,30 @@
+MySQL
+
+users
+	user_id
+	username
+	email
+	password
+
+notes
+	note_id
+	title
+	text
+	date
+	category
+	group
+	
+tags
+	tag_id
+	name
+
+tagRelations
+	tag_id
+	note_id
+	
+reminder
+	reminder_id
+	time
+	content
+	+ link to note of stuff
+

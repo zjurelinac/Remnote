@@ -72,6 +72,26 @@ function parseNote( x ){
 					parsed += tChar;
 								
 				break;
+			} case '{':{
+				if( i < x.length-1 && x.charAt( i+1 ) == '{' ){
+					var endPos = x.indexOf( '}}', i );
+					if( endPos != -1 ) endPos += 2;
+					var temp = x.slice( i, endPos );
+					if( temp.indexOf( '|' ) != -1 ){						
+						temp = temp.slice( 2, temp.length - 2 );
+						var loc = temp.indexOf( "|" );
+						var t1 = temp.slice( 0, loc ), t2 = temp.slice( loc+1 );
+						parsed += "<div class = 'img-wrap'><img src = '" + t1 + "'/><div class = 'caption'>" + t2 + "</div></div>";
+						i += temp.length + 3;
+					} else {
+						temp = temp.slice( 2, temp.length - 2 );
+						console.log( temp );					
+						parsed += "<div class = 'img-wrap'><img src = '" + temp + "'/></div>";							
+						i += temp.length + 3;
+					}
+				} else 
+					parsed += tChar;				
+				break;
 			} case '\n':{	
 						
 				if( i == x.length - 1 ){
