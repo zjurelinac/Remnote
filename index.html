@@ -26,7 +26,7 @@
 	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>-->
 	<script src = "./js/parser.js"></script>
 	<script>
-		>$( function(){
+		$( function(){
 			//hljs.initHighlightingOnLoad();
 			$( '.selectpick' ).heapbox( { 'heapsize' : 300, effect : { 'speed' : 'fast' } } );
 			/*$( "#add-note-button" ).click( function( e ){
@@ -95,11 +95,11 @@
 				<li class = "opt-add">Add</li>
 				<li class = "opt-filter">Filter</li>
 				<li class = "opt-sort">Sort</li>
-				<li class = "right opt-settings"><img src = "./img/ui/nav/settings-32-2.png"/></li>	
-				<li class = "right opt-search">Search
-					<!--<form>
+				<!--<li class = "right opt-settings"><img src = "./img/ui/nav/settings-32-2.png"/></li>	-->
+				<li class = "right opt-search">
+					<form>
 						<input type = "text" value = "Search" id = "search-term"/>
-					</form>-->
+					</form>
 				</li>
 			</ul>
 		</nav>
@@ -181,7 +181,7 @@
 				</div>
 			</article>
 		
-			<article class = "note alt">
+			<article class = "note">
 				<div class = "group-img">
 					<img src = "./img/groups/university.png"/>
 				</div>
