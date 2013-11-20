@@ -1,0 +1,36 @@
+Users
+------------------------------------------------------------------------------------------------------------------------
+Add			-	once, on registration
+Auth		-	check if exists and if passwords match[, return its id or -1]
+UpdatePass	-	change password
+Delete		-	delete user and all its data
+
+
+
+Notes
+------------------------------------------------------------------------------------------------------------------------
+Add			-	add new note
+Edit		-	change note
+Delete		-	delete note
+GetNote		-	by id
+GetNotes	-	return multiple notes( by category, group, tag )
+FindNotes	-	find sth in title, tag, content and return notes where its found
+
+
+
+Reminders
+------------------------------------------------------------------------------------------------------------------------
+Add
+Edit
+Delete
+GetReminder
+GetReminders
+
+
+
+Shorts
+------------------------------------------------------------------------------------------------------------------------
+Add
+Edit
+Delete
+

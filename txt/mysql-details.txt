@@ -2,7 +2,6 @@ MySQL
 
 users
 	user_id
-	username
 	email
 	password
 

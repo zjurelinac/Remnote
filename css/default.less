@@ -159,12 +159,14 @@ sup{
 	
 	.handler{
 		background: #bbb url( ../img/ui/select/updown.png ) no-repeat center center;
+		border-left: 1px solid #b0b0b0;
 	}
 
 	div.heap{
 		background: #bbb;
 		border: 1px solid #aaa;		
 		.shade2;
+		top: 35px;
 		
 		a.sliderUp{
 			background: #b8b8b8 url( ../img/ui/select/up.png ) no-repeat center center;
@@ -181,7 +183,7 @@ sup{
 			font-size: 15px;
 			
 			a{
-				border-bottom: 1px solid #b5b5b5;
+				border-bottom: 1px solid #b0b0b0;
 				color: #555;
 				font-weight: normal;
 			}
@@ -213,7 +215,7 @@ sup{
 	}
 	
 	.heap{
-		top: 40px;
+		top: 35px;
 		
 		.heapOption{
 			height: 32px;
@@ -237,7 +239,6 @@ sup{
 header.main{
 	margin: 0 auto;
 	overflow: hidden;
-	padding: 8px 0;
 	width: 960px;
 	
 	.logo{
@@ -253,49 +254,75 @@ header.main{
 		h1{
 			color: #2f2f2f;
 			float: left;
-			font-size: 45px;
+			font-size: 36px;
 			font-weight: 400;
+			line-height: 48px;
 		}	
 	}
 	
 	nav.main{
-		float: left;
-		margin-left: 50px;
+		float: right;
 		overflow: hidden;
 		padding: 4px 0;
-		width: 601px;
 		
-		li{
-			color: @foreDark2;
-			font-family: @headerFont;
-			font-size: 18px;
-			line-height: 60px;
+		ul{
+			border: 1px solid #aaa;
 			float: left;
-			padding: 0 15px;
+		}
+
+		li{
+			background: #cacaca;
+			border-right: 1px solid #b5b5b5;
+			line-height: 26px;
+			float: left;
+			padding: 10px 13px;
 			text-align: center;
 			
+			img{
+				display: block;
+				opacity: 0.8;
+			}
+			
 			&:hover{
-				color: @accentLight;
+				background: #d5d5d5;
 				cursor: pointer;
 			}
 			
 			&.login-link{
 				float: right;
 			}
+			
+			&:last-child{
+				border-right: 0;
+			}
 		}
 	}
 	
 	div.user{
-		background: url( "../img/ui/nav/user-32.png" ) no-repeat 152px center;
 		color: @foreDark2;
 		float: right;
-		font-family: @lightFont;
-		font-size: 20px;
-		line-height: 44px;
-		padding: 16px 10px;
-		padding-right: 75px;
-		text-align: right;
-		width: 125px;
+		font-size: 18px;
+		line-height: 48px;
+		min-width: 212px;
+		
+		a{
+			display: block;
+			float: right;
+			margin: 4px 0;
+			padding: 0 16px;
+			
+			&.login-link{
+				float: right;
+			}
+			
+			&.user-name{
+				
+				&:hover{
+					color: @accent;
+					cursor: pointer;
+				}
+			}
+		}
 	}
 }
 
