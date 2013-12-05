@@ -13,7 +13,6 @@ privileges: all
 Table: Users
 ==========================================================
 user_id		integer auto_increment primary key not null,
-username	varchar( 32 ) unique not null,
 email		varchar( 64 ) unique not null,
 password	varchar( 255 ) not null
 ----------------------------------------------------------
